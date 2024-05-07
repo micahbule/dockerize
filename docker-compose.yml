@@ -1,0 +1,23 @@
+version: '3.8'
+name: dockerize_pg_stack
+services:
+  db:
+    container_name: dockerize_postgresql
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: test_db
+    ports:
+      - '5432:5432'
+
+  pgadmin:
+    container_name: dockerize_pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: micah.bule@staizen.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - '7172:80'
