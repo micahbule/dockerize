@@ -16,6 +16,7 @@ const config = defineConfig({
 export default function getConfig(configService: ConfigService): Options {
   return {
     ...config,
+    host: configService.get('DB_HOST'),
     user: configService.get('DB_USER'),
     password: configService.get('DB_PASSWORD'),
   };
